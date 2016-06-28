@@ -14,3 +14,23 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('createUser', function () {
+    return view('createUser');
+});
+
+Route::get('createProject', function () {
+    return view('createProject');
+});
+
+Route::get('userProjects', function () {
+    return view('userProjects');
+});
+
+Route::get('editProject', function () {
+    return view('editProject');
+});
+
+Route::get('projectTransactions', function () {
+    return view('projectTransactions');
+});
