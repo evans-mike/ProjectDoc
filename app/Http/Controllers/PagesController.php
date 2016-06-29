@@ -15,27 +15,27 @@ class PagesController extends Controller
 
     public function createUser() 
     {
-    	return view('createUser');
+    	return view('pages.createUser');
 	}
 
 	public function createProject() 
 	{
-    	return view('createProject');
+    	return view('pages.createProject');
 	}
 
 	public function userProjects() 
 	{
-	    return view('userProjects');
+	    return view('pages.userProjects');
 	}
 
 	public function editProject() 
 	{
-	    return view('editProject');
+	    return view('pages.editProject');
 	}
 
 	public function projectTransactions() 
 	{
-	    return view('projectTransactions');
+	    return view('pages.projectTransactions');
 	}
 
 
