@@ -8,7 +8,7 @@
                 <div class="panel-heading">Welcome</div>
 
                 <div class="panel-body">
-                    Your Application's Landing Page.
+                    This is ProjectDoc&copy;.
                 </div>
             </div>
         </div>
