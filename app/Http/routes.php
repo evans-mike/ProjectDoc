@@ -1,15 +1,14 @@
 <?php
 
+Route::group(['middleware' => ['web']], function () {
+    Route::get('/', function () {
+        return view('welcome');
+    })->middleware('guest');
 
-Route::get('/', 'PagesController@home');
+	Route::get('/projects', 'ProjectController@index');
+	Route::post('/project', 'ProjectController@store');
+	Route::delete('/project/{project}', 'ProjectController@destroy');
 
-Route::get('createUser', 'PagesController@createUser');
+	Route::auth();
 
-Route::get('createProject', 'PagesController@createProject'); //simple interface to create with name
-
-Route::get('userProjects', 'PagesController@userProjects');
-
-Route::get('editProject', 'PagesController@editProject'); //full interface to make and save changes
-
-Route::get('projectTransactions', 'PagesController@projectTransactions');
-
+});

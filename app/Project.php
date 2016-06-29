@@ -14,4 +14,9 @@ class Project extends Model
     protected $fillable = ['name'];
     protected $fillable = ['status'];
     protected $fillable = ['owner_id'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
