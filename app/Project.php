@@ -12,8 +12,6 @@ class Project extends Model
      * @var array
      */
     protected $fillable = ['name'];
-    protected $fillable = ['status'];
-    protected $fillable = ['owner_id'];
 
     public function user()
     {

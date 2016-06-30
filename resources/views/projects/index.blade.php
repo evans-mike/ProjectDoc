@@ -5,7 +5,8 @@
     <!-- Bootstrap Boilerplate... -->
 
     <div class="panel-body">
-        <!-- Display Validation Errors, remember to add back common.error-->
+        <!-- Display Validation Errors -->
+        @include('common.errors')
  
 
         <!-- New Project Form -->
@@ -51,4 +52,46 @@
     </div>
 
     <!-- TODO: Current Projects -->
+    @if (count($projects) > 0)
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Current Projects
+            </div>
+
+            <div class="panel-body">
+                <table class="table table-striped project-table">
+
+                    <!-- Table Headings -->
+                    <thead>
+                        <th>Project</th>
+                        <th>&nbsp;</th>
+                    </thead>
+
+                    <!-- Table Body -->
+                    <tbody>
+                        @foreach ($projects as $project)
+                            <tr>
+                                <!-- Project Name -->
+                                <td class="table-text">
+                                    <div>{{ $project->name }}</div>
+                                </td>
+
+                                <td>
+                                    <!-- TODO: Delete Button -->
+                                    <form action="{{ url('project/'.$project->id) }}" method="POST">
+                                        {{ csrf_field() }}
+                                        {{ method_field('DELETE') }}
+
+                                        <button type="submit" id="delete-project-{{ $project->id }}" class="btn btn-danger">
+                                            <i class="fa fa-btn fa-trash"></i>Delete
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    @endif
 @endsection
