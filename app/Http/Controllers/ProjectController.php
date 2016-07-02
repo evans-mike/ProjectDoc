@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Project;
-use App\Http\Requests;
+
 use Illuminate\Http\Request;
+use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Project;
 use App\Repositories\ProjectRepository;
 
 class ProjectController extends Controller
@@ -29,11 +30,10 @@ class ProjectController extends Controller
 	{
 	    $this->validate($request, [
 	    	'name' => 'required|max:255',
-	    	'owner' => 'required|max:255',
     	]);
 
 	    $request->user()->projects()->create([
-        'name' => $request->name,
+        	'name' => $request->name,
     	]);
 
     	return redirect('/projects');
@@ -42,7 +42,9 @@ class ProjectController extends Controller
 	public function destroy(Request $request, Project $project)
     {
         $this->authorize('destroy', $project);
+
         $project->delete();
+        
         return redirect('/projects');
     }
 }

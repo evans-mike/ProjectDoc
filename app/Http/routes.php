@@ -6,9 +6,11 @@ Route::group(['middleware' => ['web']], function () {
     })->middleware('guest');
 
 	Route::get('/projects', 'ProjectController@index');
-	Route::post('/project', 'ProjectController@store');
-	Route::delete('/project/{project}', 'ProjectController@destroy');
 
+	Route::post('/project', 'ProjectController@store');
+
+	Route::delete('/project/{project}', 'ProjectController@destroy');
+ 
 	Route::auth();
 
 });
