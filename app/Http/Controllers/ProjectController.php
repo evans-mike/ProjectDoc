@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -21,9 +20,19 @@ class ProjectController extends Controller
 
     public function index(Request $request)
 	{
-	    return view('projects.index', [
-            'projects' => $this->projects->forUser($request->user()),
-        ]);
+	    $projects = Project::all();
+
+	    return view('projects.index', compact('projects'));
+
+	    // return view('projects.index', [
+     //        'projects' => $this->projects->forUser($request->user()),
+     //    ]);
+	}
+
+	public function show(Project $project) 
+	// Good example of route-model binding
+	{
+		return view ('projects.show', compact('project'));
 	}
 
 	public function store(Request $request)
@@ -44,7 +53,7 @@ class ProjectController extends Controller
         $this->authorize('destroy', $project);
 
         $project->delete();
-        
+
         return redirect('/projects');
     }
 }

@@ -10,7 +10,7 @@
  
 
         <!-- New Project Form -->
-        <form action="{{ url('project') }}" method="POST" class="form-horizontal">
+        <form action="{{ url('projects') }}" method="POST" class="form-horizontal">
             {{ csrf_field() }}
 
             <!-- Project Name -->

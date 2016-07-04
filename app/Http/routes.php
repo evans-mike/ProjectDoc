@@ -5,11 +5,21 @@ Route::group(['middleware' => ['web']], function () {
         return view('welcome');
     })->middleware('guest');
 
-	Route::get('/projects', 'ProjectController@index');
+	Route::get('projects', 'ProjectController@index');
 
-	Route::post('/project', 'ProjectController@store');
+	Route::get('projects/{project}', 'ProjectController@show');
 
-	Route::delete('/project/{project}', 'ProjectController@destroy');
+
+
+	Route::get('projects/create', 'ProjectController@create');
+
+	Route::post('projects', 'ProjectController@store');
+
+	Route::post('projects/{project}/edit', 'ProjectController@edit');
+
+		Route::put('projectss/{project}', 'ProjectController@update');
+
+	Route::delete('/projects/{project}', 'ProjectController@destroy');
  
 	Route::auth();
 
