@@ -3,9 +3,15 @@
 namespace App\Repositories;
 
 use App\User;
+use App\Project;
 
-class ProjectRepository
+class ProjectRepository extends Repository
 {
+    public function __construct(Project $project)
+    {
+        parent::__construct($project);
+    }
+
     /**
      * Get all of the projects for a given owner.
      *
@@ -19,3 +25,4 @@ class ProjectRepository
                     ->get();
     }
 }
+

@@ -29,12 +29,6 @@ class ProjectController extends Controller
      //    ]);
 	}
 
-	public function show(Project $project) 
-	// Good example of route-model binding
-	{
-		return view ('projects.show', compact('project'));
-	}
-
 	public function store(Request $request)
 	{
 	    $this->validate($request, [
@@ -43,10 +37,27 @@ class ProjectController extends Controller
 
 	    $request->user()->projects()->create([
         	'name' => $request->name,
+        	'status' => $request->status,
+        	'owner_id' => $request->owner_id,
     	]);
 
     	return redirect('/projects');
 	}	
+
+	public function edit(Project $project)
+	{
+		$project = $this->projects->find($project->id);
+		return view ('projects.edit', compact('project'));
+	}
+
+	public function update(Request $request, Project $project)
+	{
+
+		$project->update($request->all());
+
+		return redirect('/projects');
+	}
+
 
 	public function destroy(Request $request, Project $project)
     {

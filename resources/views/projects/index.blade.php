@@ -21,7 +21,7 @@
                 </div>
                 <div class="col-sm-6">
                     <label for="project-status" class="col-sm-3 control-label">Status</label>
-                    <select name="status" id="project-name" class="form-control">
+                    <select name="status" id="project-status" class="form-control">
                         <option value="Write">Write</option>
                         <option value="Rewrite">Rewrite</option>
                         <option value="Build">Build</option>
@@ -32,10 +32,11 @@
                     </select>
                 </div>
                 <div class="col-sm-6">
-                    <label for="project-owner" class="col-sm-3 control-label">Owner</label>
-                    <select name="status" id="project-owner" class="form-control">
+                    <label for="project-owner_id" class="col-sm-3 control-label">Owner</label>
+                    <select name="owner_id" id="project-owner_id" class="form-control">
                         <option value="">Select Owner:</option>
                         <option value="1">Admin(Mike)</option>
+                        <option value="2">Jimmy</option>
                     </select>
                 </div>
             </div>
@@ -74,6 +75,12 @@
                                 <!-- Project Name -->
                                 <td class="table-text">
                                     <div>{{ $project->name }}</div>
+                                </td>
+                                <td class="table-text">
+                                    <div>{{ $project->status }}</div>
+                                </td>
+                                <td class="table-text">
+                                    <div>{{ $project->owner_id }}</div>
                                 </td>
 
                                 <td>
