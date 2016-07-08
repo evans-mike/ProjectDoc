@@ -10,7 +10,7 @@ use App\Repositories\ProjectRepository;
 
 class ProjectController extends Controller
 {
-	protected $tasks;
+	protected $projects;
 
     public function __construct(ProjectRepository $projects)
     {
