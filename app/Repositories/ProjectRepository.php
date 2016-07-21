@@ -21,7 +21,7 @@ class ProjectRepository extends Repository
     public function forUser(User $user)
     {
         return $user->projects()
-                    ->orderBy('created_at', 'asc')
+                    ->orderBy('id', 'desc')
                     ->get();
     }
 }

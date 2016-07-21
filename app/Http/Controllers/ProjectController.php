@@ -37,8 +37,9 @@ class ProjectController extends Controller
 
 	    $request->user()->projects()->create([
         	'name' => $request->name,
-        	'status' => $request->status,
+        	'status' => $request->status_cd,
         	'owner_id' => $request->owner_id,
+					'repository' => $request->repository,
     	]);
 
     	return redirect('/projects');

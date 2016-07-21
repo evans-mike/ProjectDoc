@@ -17,21 +17,22 @@
                 </div>
                 <div class="col-sm-6">
                     <label for="project-status" class="col-sm-3 control-label">Status</label>
-                    <select name="status" id="project-name" class="form-control" selected="{{ $project->status }}">
-                        <option value="Write">Write</option>
-                        <option value="Rewrite">Rewrite</option>
-                        <option value="Build">Build</option>
-                        <option value="Rebuild">Rebuild</option>
-                        <option value="Validate">Validate</option>
-                        <option value="Audit">Audit</option>
-                        <option value="Pend">Pend</option>
+                    <select name="status" id="project-name" class="form-control" selected="{{ $project->status_cd }}">
+                        <option value="1">Write</option>
+                        <option value="2">Build</option>
+                        <option value="7">Rewrite</option>
+                        <option value="3">Rebuild</option>
+                        <option value="4">Validate</option>
+                        <option value="5">Audit</option>
+                        <option value="8">Pend</option>
+                        <option value="6">Closed</option>
                     </select>
                 </div>
                 <div class="col-sm-6">
                     <label for="project-owner" class="col-sm-3 control-label">Owner</label>
-                    <select name="status" id="project-owner" class="form-control" selected="{{ $project->owner_id }}>
+                    <select name="owner" id="project-owner" class="form-control" selected="{{ $project->owner_id }}>
                         <option value="">Select Owner:</option>
-                        <option value="1">Admin(Mike)</option>
+                        <option value="1">Admin</option>
                     </select>
                 </div>
             </div>
