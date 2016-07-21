@@ -14,32 +14,36 @@
             {{ csrf_field() }}
 
             <!-- Project Name -->
-            <div class="form-group">
-                <div class="col-sm-6">
-                    <label for="project-name" class="col-sm-3 control-label">Project Name</label>
-                    <input type="text" name="name" id="project-name" class="form-control">
+                <div class="form-group">
+                    <div class="col-sm-6">
+                        <label for="project-name" class="col-sm-3 control-label">Project Name</label>
+                        <input type="text" name="name" id="project-name" class="form-control">
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="project-repository" class="col-sm-3 control-label">Repository</label>
+                        <input type="text" name="repository" id="project-repository" class="form-control">
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="project-status" class="col-sm-3 control-label">Status</label>
+                        <select name="status" id="project-name" class="form-control">
+                            <option value="1">Write</option>
+                            <option value="2">Build</option>
+                            <option value="7">Rewrite</option>
+                            <option value="3">Rebuild</option>
+                            <option value="4">Validate</option>
+                            <option value="5">Audit</option>
+                            <option value="8">Pend</option>
+                            <option value="6">Closed</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="project-owner" class="col-sm-3 control-label">Owner</label>
+                        <select name="owner" id="project-owner" class="form-control">
+                            <option value="">Select Owner:</option>
+                            <option value="1">Admin</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="col-sm-6">
-                    <label for="project-status" class="col-sm-3 control-label">Status</label>
-                    <select name="status" id="project-status" class="form-control">
-                        <option value="Write">Write</option>
-                        <option value="Rewrite">Rewrite</option>
-                        <option value="Build">Build</option>
-                        <option value="Rebuild">Rebuild</option>
-                        <option value="Validate">Validate</option>
-                        <option value="Audit">Audit</option>
-                        <option value="Pend">Pend</option>
-                    </select>
-                </div>
-                <div class="col-sm-6">
-                    <label for="project-owner_id" class="col-sm-3 control-label">Owner</label>
-                    <select name="owner_id" id="project-owner_id" class="form-control">
-                        <option value="">Select Owner:</option>
-                        <option value="1">Admin(Mike)</option>
-                        <option value="2">Jimmy</option>
-                    </select>
-                </div>
-            </div>
 
             <!-- Add Project Button -->
             <div class="form-group">
@@ -73,12 +77,19 @@
                         @foreach ($projects as $project)
                             <tr>
                                 <!-- Project Name -->
+                                <th>Project Name:</th>
                                 <td class="table-text">
                                     <div>{{ $project->name }}</div>
                                 </td>
+                                <th>Status:</th>
                                 <td class="table-text">
-                                    <div>{{ $project->status }}</div>
+                                    <div>{{ $project->status_cd }}</div>
                                 </td>
+                                <th>Repository:</th>
+                                <td class="table-text">
+                                    <div>{{ $project->repository }}</div>
+                                </td>
+                                <th>Owner:</th>
                                 <td class="table-text">
                                     <div>{{ $project->owner_id }}</div>
                                 </td>

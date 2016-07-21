@@ -16,6 +16,10 @@
                     <input type="text" name="name" id="project-name" class="form-control" value="{{ $project->name }}">
                 </div>
                 <div class="col-sm-6">
+                    <label for="project-repository" class="col-sm-3 control-label">Respository</label>
+                    <input type="text" name="repository" id="project-repository" class="form-control" value="{{ $project->repository }}">
+                </div>
+                <div class="col-sm-6">
                     <label for="project-status" class="col-sm-3 control-label">Status</label>
                     <select name="status" id="project-name" class="form-control" selected="{{ $project->status_cd }}">
                         <option value="1">Write</option>
@@ -30,7 +34,7 @@
                 </div>
                 <div class="col-sm-6">
                     <label for="project-owner" class="col-sm-3 control-label">Owner</label>
-                    <select name="owner" id="project-owner" class="form-control" selected="{{ $project->owner_id }}>
+                    <select name="owner" id="project-owner" class="form-control" selected="{{ $project->owner_id }}">
                         <option value="">Select Owner:</option>
                         <option value="1">Admin</option>
                     </select>

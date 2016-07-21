@@ -20,7 +20,7 @@ class ProjectRepository extends Repository
      */
     public function forUser(User $user)
     {
-        return $user->projects()
+        return Project::where('user_id', $user->id)
                     ->orderBy('id', 'desc')
                     ->get();
     }

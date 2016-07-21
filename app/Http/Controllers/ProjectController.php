@@ -24,9 +24,6 @@ class ProjectController extends Controller
 
 	    return view('projects.index', compact('projects'));
 
-	    // return view('projects.index', [
-     //        'projects' => $this->projects->forUser($request->user()),
-     //    ]);
 	}
 
 	public function store(Request $request)
@@ -37,9 +34,9 @@ class ProjectController extends Controller
 
 	    $request->user()->projects()->create([
         	'name' => $request->name,
+          'repository' => $request->repository,
         	'status' => $request->status_cd,
         	'owner_id' => $request->owner_id,
-					'repository' => $request->repository,
     	]);
 
     	return redirect('/projects');
